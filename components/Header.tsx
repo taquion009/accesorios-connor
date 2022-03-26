@@ -13,8 +13,13 @@ const Header: React.FC = () => {
       <div className={header.containerHeader}>
         <MenuMoblie />
         <Link href="/">
-          <a>
-            <Image src={logo} alt="Logo" width={76} height={64} />
+          <a className={header.logo}>
+            <Image
+              src={logo}
+              alt="Logo accesorios connor"
+              width={76}
+              height={64}
+            />
           </a>
         </Link>
         <MenuDesk />
