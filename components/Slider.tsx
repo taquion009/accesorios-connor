@@ -10,6 +10,45 @@ interface Props {
   speedTransition: number
 }
 
+const sliderMove = (
+  width: number,
+  slider: HTMLDivElement,
+  speed: number,
+  speedTransition: number,
+  length: number,
+) => {
+  let position = 0
+
+  if (slider.style.left !== '') {
+    position = Math.trunc(
+      Number(slider.style.left.split('px')[0]) / (width * -1),
+    )
+
+    slider.style.transition = `none`
+    slider.style.left = `${position * width * -1}px`
+  }
+
+  const interval = setInterval(() => {
+    position += 1
+    if (slider) {
+      slider.style.transition = `left ${speedTransition}ms ease-in-out`
+      slider.style.left = `${position * width * -1}px`
+
+      if (position * width * -1 <= length * width * -1) {
+        setTimeout(() => {
+          if (!slider) return
+          position = 0
+
+          slider.style.transition = `none`
+          slider.style.left = `0px`
+        }, speedTransition)
+      }
+    }
+  }, speed)
+
+  return interval
+}
+
 const Slider: React.FC<Props> = ({
   imgs,
   speed = 2000,
@@ -19,7 +58,6 @@ const Slider: React.FC<Props> = ({
 }) => {
   const slider = useRef<HTMLDivElement>(null)
   const [widthSlider, setWidthSlider] = React.useState(width)
-  const [position, setPosition] = React.useState(0)
 
   useEffect(() => {
     if (window) {
@@ -28,42 +66,28 @@ const Slider: React.FC<Props> = ({
       )
 
       window.addEventListener('resize', () => {
-        const newWidth =
-          width > window.innerWidth - 32 ? window.innerWidth - 32 : width
-        setWidthSlider(newWidth)
-
-        if (!slider.current) return
-        slider.current.style.left = `${position * (newWidth + space) * -1}px`
+        setWidthSlider(
+          width > window.innerWidth - 32 ? window.innerWidth - 32 : width,
+        )
       })
     }
-  }, [width, space, position])
+  }, [width, space])
 
   useEffect(() => {
-    console.log('useEffect')
-    let iter = setTimeout(() => {
-      setPosition((after) => after + 1)
-      if (slider.current) {
-        slider.current.style.transition = `left ${speedTransition}ms ease-in-out`
-        slider.current.style.left = `${position * (widthSlider + space) * -1}px`
+    if (!slider.current) return
 
-        if (
-          position * (widthSlider + space) * -1 <=
-          (imgs.length * widthSlider + space * imgs.length) * -1
-        ) {
-          setTimeout(() => {
-            if (!slider.current) return
+    const iter = sliderMove(
+      widthSlider + space,
+      slider.current,
+      speed,
+      speedTransition,
+      imgs.length,
+    )
 
-            setPosition(0)
-
-            slider.current.style.transition = `none`
-            slider.current.style.left = `0px`
-          }, speedTransition)
-        }
-      }
-    }, speed)
-
-    return () => clearTimeout(iter)
-  }, [position, speed, imgs, widthSlider, space, speedTransition])
+    return () => {
+      clearTimeout(iter)
+    }
+  }, [speed, imgs, widthSlider, space, speedTransition])
 
   return (
     <div className={style.containerSlider} style={{ width: widthSlider }}>
