@@ -1,4 +1,4 @@
-import header from 'styles/header.module.scss'
+import style from 'styles/header.module.scss'
 import React from 'react'
 import Image from 'next/image'
 import logo from 'public/img/logo.svg'
@@ -8,12 +8,14 @@ import Link from 'next/link'
 import MenuDesk from './MenuDesk'
 
 const Header: React.FC = () => {
+  const header = React.useRef<HTMLDivElement>(null)
+
   return (
-    <header className={header.header}>
-      <div className={header.containerHeader}>
-        <MenuMoblie />
+    <header className={style.header} ref={header}>
+      <div className={style.containerHeader}>
+        <MenuMoblie header={header.current} />
         <Link href="/">
-          <a className={header.logo}>
+          <a className={style.logo}>
             <Image
               src={logo}
               alt="Logo accesorios connor"
@@ -23,10 +25,10 @@ const Header: React.FC = () => {
           </a>
         </Link>
         <MenuDesk />
-        <div className={header.cart}>
+        <div className={style.cart}>
           <Link href="/cart">
             <a>
-              <span className={header.spanCart}>CARRITO</span>
+              <span className={style.spanCart}>CARRITO</span>
               <Image src={iconBag} width={24} height={24} alt="icon bag" />
             </a>
           </Link>

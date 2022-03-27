@@ -112,6 +112,9 @@ const SectionListCard: React.FC = () => {
             <Skeleton />
             <Skeleton />
             <Skeleton />
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
           </>
         )}
       </div>

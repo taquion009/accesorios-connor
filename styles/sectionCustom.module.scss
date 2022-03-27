@@ -1,0 +1,71 @@
+@import 'variables';
+
+.sectionCustom {
+  text-align: center;
+  padding: 2em 1em;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+
+  h3 {
+    font-size: 1.5em;
+  }
+
+  .button {
+    border-radius: 23.5px;
+    padding: 1em 2em;
+    border: none;
+    outline: none;
+    background-color: $background-button;
+    color: #fff;
+    font-size: 1em;
+    max-width: 100%;
+    margin-top: 1em;
+    white-space: nowrap;
+  }
+
+  .button:hover {
+    background-color: $background-button-hover;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.05);
+  }
+
+  .customImagePreview {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+}
+
+.containerFigure {
+  width: 100%;
+  min-height: calc(100vh - 64px);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  overflow: hidden;
+
+  .figure9 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(calc(100vw - 204px)) translateY(calc(100vh - 514px));
+  }
+
+  .figure10 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(calc(0vw - 17px)) translateY(calc(50vh - 69px));
+  }
+}
