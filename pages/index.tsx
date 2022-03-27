@@ -1,4 +1,5 @@
 import Header from 'components/Header'
+import SectionListCard from 'components/SectionListCard'
 import SectionSlider from 'components/SectionSlider'
 import type { NextPage } from 'next'
 import Head from 'next/head'
@@ -13,6 +14,7 @@ const Home: NextPage = () => {
       <Header />
       <main>
         <SectionSlider />
+        <SectionListCard />
       </main>
     </>
   )
