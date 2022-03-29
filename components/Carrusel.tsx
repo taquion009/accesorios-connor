@@ -13,7 +13,6 @@ const handleClickMove = (
   rigth: Boolean,
   slider: HTMLUListElement,
   width: number,
-  length: number,
   setSelect: React.Dispatch<
     React.SetStateAction<{
       select: number
@@ -311,7 +310,6 @@ const Carrusel: React.FC<Props> = ({ items, width, height }) => {
             false,
             slider.current,
             widthSlider + 64,
-            items.length,
             setSelect,
             lenghtSection,
           )
@@ -332,7 +330,6 @@ const Carrusel: React.FC<Props> = ({ items, width, height }) => {
             true,
             slider.current,
             widthSlider + 64,
-            items.length,
             setSelect,
             lenghtSection,
           )
