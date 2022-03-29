@@ -1,5 +1,6 @@
 import Header from 'components/Header'
 import SectionCustom from 'components/SectionCustom'
+import SectionFavoriteMonth from 'components/SectionFavoriteMonth'
 import SectionListCard from 'components/SectionListCard'
 import SectionSlider from 'components/SectionSlider'
 import type { NextPage } from 'next'
@@ -17,6 +18,7 @@ const Home: NextPage = () => {
         <SectionSlider />
         <SectionListCard />
         <SectionCustom />
+        <SectionFavoriteMonth />
       </main>
     </>
   )

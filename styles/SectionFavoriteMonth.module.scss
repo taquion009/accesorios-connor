@@ -1,0 +1,41 @@
+@import 'variables';
+
+.section {
+  text-align: center;
+  padding: 2em 1em;
+  padding-top: 0;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  margin-top: 2em;
+
+  h3 {
+    font-size: 1.5em;
+  }
+}
+
+.containerFigure {
+  width: 100%;
+  min-height: calc(100vh - 64px);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  overflow: hidden;
+
+  .figure11 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-31%) translateY(0%);
+    width: 198%;
+    height: 140%;
+  }
+}
+
+.containerCarrusel {
+  max-width: $maxWidth;
+  margin: auto;
+  overflow: hidden;
+}

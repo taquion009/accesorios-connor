@@ -7,13 +7,6 @@ import figure7 from 'public/img/figure/figure-7.svg'
 import figure8 from 'public/img/figure/figure-8.svg'
 import Card from './Card'
 
-interface Product {
-  title: string
-  image: string
-  price: number
-  id: number
-}
-
 const SectionListCard: React.FC = () => {
   const [list, setList] = React.useState<Product[]>([])
   const [category, setCategory] = React.useState<string>('')
@@ -30,7 +23,6 @@ const SectionListCard: React.FC = () => {
       .then((res) => {
         res.length = 8
         const data: Product[] = res.map((item: any) => ({
-          // title: item.title.replace(/(.{1,30})(.*)/g, '$1...'),
           title: item.title,
           image: item.image,
           price: item.price,
@@ -38,6 +30,10 @@ const SectionListCard: React.FC = () => {
         }))
 
         setList(data)
+        setIsLoading(false)
+      })
+      .catch((err: any) => {
+        console.log(err)
         setIsLoading(false)
       })
   }, [category])

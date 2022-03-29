@@ -8,12 +8,10 @@ import Link from 'next/link'
 import MenuDesk from './MenuDesk'
 
 const Header: React.FC = () => {
-  const header = React.useRef<HTMLDivElement>(null)
-
   return (
-    <header className={style.header} ref={header}>
+    <header className={style.header}>
       <div className={style.containerHeader}>
-        <MenuMoblie header={header.current} />
+        <MenuMoblie />
         <Link href="/">
           <a className={style.logo}>
             <Image
