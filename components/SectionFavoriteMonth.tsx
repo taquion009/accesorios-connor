@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import figure11 from 'public/img/figure/figure-11.svg'
-import style from 'styles/sectionFavoriteMonth.module.scss'
+import style from 'styles/SectionFavoriteMonth.module.scss'
 import Carrusel from './Carrusel'
 
 const SectionFavoriteMonth: React.FC = () => {
