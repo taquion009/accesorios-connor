@@ -1,5 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: blue orange;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #f3f3ff;
+  border-radius: 20px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #d0a2cb;
+  border-radius: 20px;
+}
+
 html,
 body {
   padding: 0;
