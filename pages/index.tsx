@@ -6,6 +6,7 @@ import SectionListCard from 'components/SectionListCard'
 import SectionSlider from 'components/SectionSlider'
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Footer from 'components/Footer'
 
 const Home: NextPage = () => {
   return (
@@ -60,6 +61,7 @@ const Home: NextPage = () => {
           ]}
         />
       </main>
+      <Footer />
     </>
   )
 }

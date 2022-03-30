@@ -15,7 +15,7 @@ const Question: React.FC<{
 
   React.useEffect(() => {
     if (p.current) {
-      setHeight(p.current.offsetHeight)
+      setHeight(p.current.offsetHeight + 16)
     }
   }, [p])
 
@@ -34,7 +34,7 @@ const Question: React.FC<{
       <div
         className={style.answer}
         style={{
-          height: activeQuestion === id ? height + 16 : 0,
+          height: activeQuestion === id ? height : 0,
         }}
       >
         <p ref={p}>{answer}</p>
