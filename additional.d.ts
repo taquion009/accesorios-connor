@@ -4,8 +4,8 @@ declare module "*.scss" {
 }
 
 interface Product {
-  title: string
-  image: string
-  price: number
-  id: number
+  title: string;
+  image: string[];
+  price: number;
+  id: number;
 }

@@ -1,0 +1,105 @@
+@import 'variables';
+
+.detail {
+  max-width: 500px;
+
+  .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 0;
+      margin-top: 0.5em;
+    }
+
+    .price {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: $color-text-price;
+      margin-top: 0.5em;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    margin: 0;
+    margin-top: 0.5em;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    gap: 1em;
+
+    .buttonsQuantity {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      align-content: center;
+      margin-top: 1em;
+      text-align: center;
+
+      .quantity {
+        border: none;
+        outline: none;
+        font-size: 2rem;
+        width: 2em;
+        text-align: center;
+        font-family: Tenor Sans;
+      }
+      .quantity::-webkit-inner-spin-button,
+      .quantity::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      .quantity {
+        -moz-appearance: textfield;
+      }
+      & > button {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        font-size: 1.75rem;
+        font-family: Tenor Sans;
+        cursor: pointer;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+      }
+    }
+
+    .buttonSubmit {
+      background-color: $button-submit-color-bg;
+      border: none;
+      font-family: Tenor Sans;
+      outline: none;
+      padding: 0.5em;
+      font-size: 1rem;
+      color: $button-submit-color-text;
+      margin: auto;
+      padding: 1em 2em;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      cursor: pointer;
+
+      & img {
+        filter: invert(1);
+        transform: translateY(-2px);
+      }
+    }
+  }
+}

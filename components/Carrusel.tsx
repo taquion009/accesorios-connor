@@ -2,9 +2,15 @@ import React from 'react'
 import Image from 'next/image'
 import style from 'styles/carrusel.module.scss'
 import arrowCarrusel from 'public/img/arrow-carrusel.svg'
+import Link from 'next/link'
 
 interface Props {
-  items: Product[]
+  items: {
+    image: string[]
+    content?: React.ReactNode
+    id: number | string
+    alt: string
+  }[]
   width: number
   height: number
 }
@@ -347,18 +353,15 @@ const Carrusel: React.FC<Props> = ({ items, width, height }) => {
         {items.map((item) => (
           <li key={item.id} style={{ width: widthSlider }}>
             <Image
-              src={item.image}
-              alt={item.title}
+              src={item.image[0]}
+              alt={item.alt}
               width={widthSlider}
               height={height}
               objectFit="cover"
               layout="fixed"
               draggable={false}
             />
-            <div>
-              <h4>{item.title}</h4>
-              <p>${item.price}</p>
-            </div>
+            {!!item.content && <>{item.content}</>}
           </li>
         ))}
       </ul>

@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import React from 'react'
-import loaderImage from 'public/img/loader-image.svg'
 
 interface Props {
   title: string
@@ -89,6 +88,7 @@ xmlns="http://www.w3.org/2000/svg"
         height={200}
         layout="responsive"
         priority
+        objectFit="contain"
         placeholder="blur"
         blurDataURL={`data:image/svg+xml;base64,${toBase64(
           convertImage(700, 475),

@@ -24,7 +24,7 @@ const SectionListCard: React.FC = () => {
         res.length = 8
         const data: Product[] = res.map((item: any) => ({
           title: item.title,
-          image: item.image,
+          image: [item.image],
           price: item.price,
           id: item.id,
         }))
@@ -91,11 +91,11 @@ const SectionListCard: React.FC = () => {
       <div className={style.containerListCard}>
         {!isLoading ? (
           list.map((item) => (
-            <Link href="/" key={item.id}>
+            <Link href={`product/${item.id}`} key={item.id}>
               <a className={style.card}>
                 <Card
                   title={item.title}
-                  image={item.image}
+                  image={item.image[0]}
                   price={item.price}
                 />
               </a>
